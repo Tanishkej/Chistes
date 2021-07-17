@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--Titulo Modo 2006-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Computación en el cliente web</title>
+        <!--Codigo-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            
+            let cantidad = 1;
+
+            var getJoke = function() {
+                $.get("http://api.icndb.com/jokes/random",(Response)=>{
+                    var textoChiste = Response.value.joke;
+                    $('h2').html(textoChiste);
+                });
+            }
+
+            window.onload = function() {
+                getJoke(); //Inmediato
+                var boton = document.querySelector('button');
+                boton.onclick = function() {
+                    getJoke();
+                };
+                boton.innerHTML = 'Otro chiste';
+            }
+        </script> 
+    </head>
+    <body>
+        <center><img src="UNIR.jpg">
+            <div class="container">
+                <header class="text-center">
+                    <font color="#RRVVAA">
+                    <h4>Creado por Judith Tania Lemus Cabrera</h4>
+                    <h4>Profesor Barbaro Jorge Ferro Castro</h4>
+                    </font><hr/></header>
+        </center>
+            <div class="jumbotron">
+                <center>
+                    <h1 class="display-4">Computación en el cliente web<g</h1>
+                    <p class="lead">Ejercicio 2 Modo 2006 Usando jQuery.</p>
+                </center>
+                <p>Chiste, Chuck Norris:</p>
+                <div class="container">
+                    <header class="text-center">
+                    <font color="#RRVVAA">
+                        <h2></h2>
+                        <h1>a</h1>
+                        <h2></h2>
+                    </font>
+                        <p>Laboratorio: Creando una aplicación web.</p>
+                        <p class="lead">Usando Modo 2006 jQuery</p> 
+                    </header>
+                </div> 
+            <button class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div>
+        <p><font color="#RRVVAE">
+                <b> *** Master Ing de Software y Sistemas *** </b></font></p>
+    </body>
+</html>

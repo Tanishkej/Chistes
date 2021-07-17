@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--Titulo Modo 2005-->
+        <meta charset="utf-8">
+        <title>Computación en el cliente web</title>
+        <!--Codigo-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.icndb.com/jquery.icndb-0.1.js"></script>
+        <script type="text/javascript">
+            
+            let cantidad = 5;
+
+            var cleanJokes = function() {
+                var ul = document.querySelector("ul");
+                while(ul.firstChild) {
+                    ul.removeChild(ul.firstChild);
+                }
+            }
+
+            var getJoke = function() {
+                cleanJokes();
+                $.icndb.getRandomJokes({ 
+	                number: cantidad,
+  	                success: (response) => {
+                        response.forEach(element => { 
+                            $('#listachistes').append('<li>' + element.joke + '</li>');
+                        });
+                    }
+                });
+            }
+
+            window.onload = function() {
+                getJoke(); //Inmediato
+                var boton = document.querySelector('button');
+                boton.onclick = function() {
+                    getJoke();
+                };
+                boton.innerHTML = 'Otro chiste';
+            }
+        </script> 
+    </head>
+    <body>
+        <div class="jumbotron">
+             <h1 class="display-4">Computación en el cliente web</h1>
+                    
+                <ul id="listachistes" >
+                </ul>
+                
+            <button class="btn btn-primary btn-lg">
+        </div>
+        
+        <p><font color="#RRVVAE">
+                <b> *** Master Ing de Software y Sistemas *** </b></font></p>
+    </body>
+</html>
